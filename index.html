@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
+
+
+
+  
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+
+  <title>Untitled</title>
+
+    <link rel="canonical" href="https://codepen.io/vsalema/pen/KwPvzPr">
+  
+  
+  
+  
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M3U Player</title>
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+   <link href="https://unpkg.com/videojs-max-quality-selector@0.9.1/dist/videojs-max-quality-selector.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://vsalema.github.io/newiptv/css/newiptv.css" rel="stylesheet" />  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <link href="https://vsalema.github.io/tvpt4/css/tresmin.css" rel="stylesheet" />
+    
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/scss/_root.scss
+  " rel="stylesheet" />
+  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-WND5TJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GTM-WND5TJ');
+</script>
+
+  
+  </head>
+<body onclick="togglesubmenu();">
+    
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+      <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+  
+  <div class="sidebar" id="sidebar">
+  <div id="channels">
+    
+     <div class="container">
+    <h1 class="mb-3 text-center">M3U Playlist</h1>
+
+    <div class="input-group mb-3">
+      <select id="sourceSelect" class="form-select">
+        <option value="https://vsalema.github.io/tvpt4/css/movies.m3u">Movies</option>
+        <option value="https://tvradiozap.eu/index.php/s/tvzeu.m3u">europe</option>
+        <option value="https://iptv-org.github.io/iptv/index.m3u">iptv Monde</option>
+        <option value="https://tvradiozap.eu/index.php/s/tvrzra.m3u">Radio</option>
+        <option value="https://iptv-org.github.io/iptv/index.country.m3u">country</option>
+        <option value="https://iptv-org.github.io/iptv/index.language.m3u">language</option>
+        <option value="custom">Possibilités</option>
+      </select>
+
+      <input type="text" id="m3uLink" class="form-control w-50" placeholder="Entrez le chemin M3U">
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="file" id="fileInput" class="form-control">
+    </div>
+
+    <div class=" input-group">
+      <label for="categorySelect" class="form-label text-center w-50 ">Sélectionnez la catégorie:</label>
+      <span class="form-label text-center w-50">Sélectionnez la chaîne:</span>
+    </div>
+
+    <div class="input-group mb-3">
+      <select id="categorySelect" class="form-select"></select>
+      <select id="channelSelect" class="form-select"></select>
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="text" id="channelLink" class="form-control" placeholder="Lien de chaîne">
+    </div>
+
+   <div class="imputa">
+    <div class="input-group2 mb-5">
+      <img id="channelLogo" src="" alt="Logo chaîne📺" class="tmd d-block mx-auto" style="max-width:150px;max-height:100px;">
+    </div>
+  </div></div> 
+  </div></div>
+
+  <div class="rubrique visible">
+	<video autoplay id="player"   class="js-video video-js  vjs-big-play-centered" controls preload="auto" poster="https://cdn.futura-sciences.com/sources/images/iptv.jpeg" data-setup="{}">
+          <-- <source src="https://fl2.moveonjoy.com/HBO/index.m3u8" type="application/x-mpegURL" /> -->
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a
+            web browser that
+            <a href="https://videojs.com/html5-video-support/" target="_blank"
+              >supports HTML5 video</a
+            >
+          </p>
+        </video>
+      
+    <script src="https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.min.js"></script>
+<script src="https://unpkg.com/videojs-max-quality-selector@0.9.1/dist/videojs-max-quality-selector.min.js"></script>
+    
+    
+    
+    
+    <div class="sousmenu hamburger">
+    <div class="pagesousmenu plate" onclick="this.classList.toggle('active')">
+      <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+        <path class="line line1" d="M 50,35 H 30" />
+        <path class="line line2" d="M 50,35 H 70" />
+        <path class="line line3" d="M 50,50 H 30" />
+        <path class="line line4" d="M 50,50 H 70" />
+        <path class="line line5" d="M 50,65 H 30" />
+        <path class="line line6" d="M 50,65 H 70" />
+      </svg>
+      <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+        <path class="line" d="M 34,32 L 66,68" />
+        <path class="line" d="M 66,32 L 34,68" />
+      </svg>
+    </div>
+  </div>
+			</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.20.3/video.min.js"></script>
+<script src="https://vsalema.github.io/newiptv/js/newiptv.js"></script>
+<script id="rendered-js" >
+const sidebar = document.getElementById('sidebar');
+const hamburger = document.querySelector('.hamburger');
+const sideLinks = sidebar.querySelectorAll('a');
+
+function toggleSidebar() {
+  sidebar.classList.toggle('sidebaractive');
+
+}
+
+hamburger.addEventListener('click', toggleSidebar);
+
+sideLinks.forEach(link => {
+  link.addEventListener('click', toggleSidebar);
+
+});
+function togglesubmenu() {
+  if (window.matchMedia("(max-width: 1366px)").matches) {
+    const y = document.querySelectorAll("div.hamburger");
+    y[0].classList.toggle("platevisible");
+  }
+}
+var player = videojs('player');
+player.maxQualitySelector({
+  'defaultQuality': 2 // Make the video start playing at the highest quality possible
+});
+  
+  //# sourceURL=pen.js
+    </script>
+  
+  
+  <script>
+  
+  (function(window, videojs) {
+     var player = window.player = videojs('player');
+	  player.ready(function() {
+	  const muteButton = document.querySelector("");
+		  muteButton.click();
+			
+		  var promise = player.play();
+		  if (promise !== undefined) {
+			  promise.then(function() {
+				  const muteButton = document.querySelector("");
+				}).catch(function(error) {
+				});
+			} else {
+			}
+		  });
+player.maxQualitySelector({
+		  displayCurrentQuality: false,
+	  });
+	}(window, window.videojs));
+  
+  </script>
+  </body>
+  </html>
+  
+     
