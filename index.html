@@ -26,16 +26,195 @@
 
   gtag('config', 'GTM-WND5TJ');
 </script>
+  
+  <style>
+    /* imports */
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+/* colors */
+/* variables */
+/* mixins */
+/* resets and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+html {
+  background: #000000;
+  color: white;
+  font: normal 12px/1.42857 "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  font: inherit;
+  font-size: 1.2rem;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.8;
+}
+
+/* nav toggle */
+.nav-toggle {
+  cursor: pointer;
+  height: 2.5rem;
+  left: 2rem;
+  position: fixed;
+  top: 1rem;
+  width: 3.5rem;
+  z-index: 2;
+}
+.nav-toggle:hover {
+  opacity: 0.8;
+}
+.nav-toggle .nav-toggle-bar,
+.nav-toggle .nav-toggle-bar::after,
+.nav-toggle .nav-toggle-bar::before {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background: #ffffff42;
+  content: "";
+  height: 0.5rem;
+  transition: all 0.5s;
+  width: 100%;
+}
+.nav-toggle .nav-toggle-bar {
+  margin-top: 0;
+}
+.nav-toggle .nav-toggle-bar::after {
+  margin-top: 1rem;
+}
+.nav-toggle .nav-toggle-bar::before {
+  margin-top: -1rem;
+}
+.nav-toggle.expanded .nav-toggle-bar {
+  background: transparent;
+}
+.nav-toggle.expanded .nav-toggle-bar::after, .nav-toggle.expanded .nav-toggle-bar::before {
+  background: white;
+  margin-top: 0;
+}
+.nav-toggle.expanded .nav-toggle-bar::after {
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.nav-toggle.expanded .nav-toggle-bar::before {
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+/* nav */
+.nav {
+  box-shadow: none;
+  color: white;
+  display: flex;
+  font-size: 0.95rem;
+  height: 100vh;
+  left: -24rem;
+  padding: 6rem 3rem 3rem 3rem;
+  position: fixed;
+  top: 0;
+  transition: box-shadow 0.5s, left 0.5s;
+  width: 27rem;
+  z-index: 1;
+}
+.nav.expanded {
+  box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.125);
+  left: 0;
+}
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  margin: auto 0;
+}
+
+/*   #main {
+	$-background-top: rgba(color(accent), .8);
+	$-background-bottom: rgba(color(primary), .8);
+	$-background-gradient: linear-gradient(to bottom,
+		$-background-top, $-background-bottom);
+	$-background-url: url('https://wallpapers.com/images/featured/plain-black-background-02fh7564l8qq4m6d.jpg');
+
+	background-image: $-background-gradient, $-background-url;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: contrast-color($-background-top,
+		color(text-dark), color(text-light));
+	flex-grow: 1;
+	flex-shrink: 0;
+	padding: 2rem;
+	position: relative;
+}
+*/
+  </style>
+  <style>
+  .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-left: calc(var(--bs-border-width) * -1);
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+  
+  .vjs-modal-dialog .vjs-modal-dialog-content {
+  z-index: -1;
+}
+  
+  #channels {
+   margin-left: -39px;
+   margin-top: -74px;
+    }
+  .form-control {
+  color: #238bbe;
+  border: var(--bs-border-width) solid #1d62a6;
+    }
+  .input-group {
+    color: darkgray;
+  }
+  .ch {
+  margin-top: -17px;
+  margin-left: -3px;  
+  color: #ffffff7d; 
+    }
+  
+  </style>
   
   </head>
 <body onclick="togglesubmenu();">
-    
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
       <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
   
-  <div class="sidebar" id="sidebar">
-  <div id="channels">
+  
+  
+  <div class="nav-toggle"><p class="ch">chaines</p>
+	<div class="nav-toggle-bar"></div>
+</div>
+
+
+  
+  
+  
+  
+  <nav id="nav" class="nav">
+    
+    <div id="channels">
     
      <div class="container">
     <h1 class="mb-3 text-center">M3U Playlist</h1>
@@ -48,7 +227,7 @@
         <option value="https://tvradiozap.eu/index.php/s/tvrzra.m3u">Radio</option>
         <option value="https://iptv-org.github.io/iptv/index.country.m3u">country</option>
         <option value="https://iptv-org.github.io/iptv/index.language.m3u">language</option>
-        <option value="custom">Possibilités</option>
+        <option value="custom">Load M3u</option>
       </select>
 
       <input type="text" id="m3uLink" class="form-control w-50" placeholder="Entrez le chemin M3U">
@@ -64,7 +243,7 @@
     </div>
 
     <div class="input-group mb-3">
-      <select id="categorySelect" class="form-select"></select>
+      <select id="categorySelect" class="form-select"></select>&nbsp;&nbsp;
       <select id="channelSelect" class="form-select"></select>
     </div>
 
@@ -75,12 +254,15 @@
    <div class="imputa">
     <div class="input-group2 mb-5">
       <img id="channelLogo" src="" alt="Logo chaîne📺" class="tmd d-block mx-auto" style="max-width:150px;max-height:100px;">
-    </div>
-  </div></div> 
-  </div></div>
+  </div>
+  </div>
+  </div> 
+  </div>
+</nav>
 
-  <div class="rubrique visible">
-	<video autoplay id="player"   class="js-video video-js  vjs-big-play-centered" controls preload="auto" poster="https://cdn.futura-sciences.com/sources/images/iptv.jpeg" data-setup="{}">
+
+  
+	<video autoplay id="player"   class="js-video video-js vjs-fluid vjs-big-play-centered" controls preload="auto" poster="https://cdn.futura-sciences.com/sources/images/iptv.jpeg" data-setup="{}">
           <-- <source src="https://fl2.moveonjoy.com/HBO/index.m3u8" type="application/x-mpegURL" /> -->
           <p class="vjs-no-js">
             To view this video please enable JavaScript, and consider upgrading to a
@@ -91,28 +273,10 @@
           </p>
         </video>
       
-    
-    
-    
-    
-    
-    <div class="sousmenu hamburger">
-    <div class="pagesousmenu plate" onclick="this.classList.toggle('active')">
-      <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
-        <path class="line line1" d="M 50,35 H 30" />
-        <path class="line line2" d="M 50,35 H 70" />
-        <path class="line line3" d="M 50,50 H 30" />
-        <path class="line line4" d="M 50,50 H 70" />
-        <path class="line line5" d="M 50,65 H 30" />
-        <path class="line line6" d="M 50,65 H 70" />
-      </svg>
-      <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
-        <path class="line" d="M 34,32 L 66,68" />
-        <path class="line" d="M 66,32 L 34,68" />
-      </svg>
-    </div>
-  </div>
-			</div>
+  
+  
+  
+  <main id="main"></main>
 <script src="https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.min.js"></script>
 <script src="https://unpkg.com/videojs-max-quality-selector@0.9.1/dist/videojs-max-quality-selector.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -141,9 +305,9 @@ function togglesubmenu() {
     y[0].classList.toggle("platevisible");
   }
 }
-var player = videojs('player');
+var player = videojs('player');
 player.maxQualitySelector({
-  'defaultQuality': 2 // Make the video start playing at the highest quality possible
+  'defaultQuality': 2 // Make the video start playing at the highest quality possible
 });
   //# sourceURL=pen.js
     </script>
@@ -172,10 +336,30 @@ player.maxQualitySelector({
 	}(window, window.videojs));
   
   </script>
+  
+  <script>
+  (function () {
+
+  let hamburger = {
+    nav: document.querySelector('#nav'),
+    navToggle: document.querySelector('.nav-toggle'),
+
+    initialize() {
+      this.navToggle.addEventListener('click',
+      () => {this.toggle();});
+    },
+
+    toggle() {
+      this.navToggle.classList.toggle('expanded');
+      this.nav.classList.toggle('expanded');
+    } };
+
+
+  hamburger.initialize();
+
+})();
+  </script>
+  
+  
   </body>
 </html>
-  
-      
-
-  
-
