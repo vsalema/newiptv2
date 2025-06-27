@@ -207,7 +207,47 @@ font-size: 1.1rem;
 } 
   
   </style>
+  <style>
   
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion h2 {
+  background-color: #;
+  cursor: pointer;
+  margin: 0;
+  padding: 15px 0 15px 50px;
+  position: relative;
+  color: white;
+}
+.accordion h4 {
+  background-color: #20394e;
+  color: #a9afb5;
+  margin: 0;
+  padding: 5px 0 5px 70px;
+}
+.accordion h4:before {
+  content: ">";
+  color: #7cba21;
+  margin-right: 5px;
+}
+.accordion h4:hover {
+  color: #7cba21;
+  cursor: pointer;
+}
+ a:link {
+  text-decoration: none;
+}
+  </style>
+  <style>
+  .accord {
+  font-size: 1.1rem;
+  }
+  </style>
   </head>
 <body onclick="togglesubmenu();">
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -242,7 +282,54 @@ font-size: 1.1rem;
     <br>
     <input type="submit" value="Load video">
   </form>
-    </div>
+     <div class="accord">
+  <ul id="vidlink" class="accordion">
+    <li>
+      <h2>Play Other source</h2>
+      <ul>
+        <li><a id="myLink" title="Click video" href="http://jplayer.org/video/m4v/Incredibles_Teaser.m4v"><h4>Play .M4V</h4></a></li>
+        <li><a id="myLink" title="Click video" href="//assets3.ign.com/videos/zencoder/2016/06/15/640/7080c56a76e2b74ec8ecfe4c224441d4-500000-1466028542-w.mp4"><h4>Play .MP4</h4></a></li>
+        <li><a id="myLink" title="Click video" href="https://www.youtube.com/watch?v=kkGeOWYOFoA"><h4>Play Youtube</h4></a></li>
+        <li><a id="myLink" title="Click video" href="https://yt-dash-mse-test.commondatastorage.googleapis.com/media/car-20120827-manifest.mpd"><h4>Play Dash (.mpd)</h4></a></li>
+        <li><a id="myLink" title="Click video" href="http://jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm"><h4>Play .webm</h4></a></li>
+        <li><a id="myLink" title="Click video" href="https://github.com/robovm/apple-ios-samples/blob/master/avTouch/sample.m4a?raw=true"><h4>Play .M4a (audio)</h4></a></li>
+        <li><a id="myLink" title="Click video" href="https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8
+"><h4>Play .m3u8 streaming</h4></a></li>
+        <li><a id="myLink" title="Click video" href="http://techslides.com/demos/sample-videos/small.flv"><h4>Play .FLV (Do not work on JSFiddle)</h4></a></li>
+       
+      </ul>
+    </li>
+ </div>
+</div>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+    
+    /*
+Change selectors as necessary
+*/
+
+var $listChildPanels = $('.accordion > li ul');  
+var hideListChildPanels = $listChildPanels.hide();
+    
+$('.accordion > li > h2').click(function(e) {
+
+  hideListChildPanels.slideUp();
+
+  $('.accordion li > h2').removeClass('shown');
+  $('.accordion li').removeClass('shown');
+
+  var subList = $(this).siblings();
+
+  if(!$(subList).is(':visible')){
+    $(subList).slideDown();
+    $(this).addClass('shown');
+    $(this).closest('li').addClass('shown');
+  }
+
+  e.preventDefault();
+});
+    </script>  
+        </div>
     <div class="input-group mb-3">
       <select id="sourceSelect" class="form-select">
         <option value="https://raw.githubusercontent.com/vsalema/tvpt4/refs/heads/main/css/TVradioZap-TV-Europe%2B_s_2024-12-27.m3u">France TV 🇫🇷</option>
@@ -580,6 +667,6 @@ function getExt(ext) {
 
   
   </script>
-  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   </body>
 </html>
