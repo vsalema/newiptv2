@@ -31,6 +31,37 @@
 </script>
   
   <style>
+    
+    
+    .up {
+  --color: #f8f9fa;
+  --hover: #94e458;
+}
+button {
+  background: #838080;
+  border: 1px solid;
+  font: inherit;
+    line-height: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+width: 180px;
+height: 10vh;
+font-size: 1.1rem;
+}
+button {
+  color: var(--color);
+  transition: 0.25s;
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /* imports */
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 /* colors */
@@ -287,7 +318,7 @@ ul {
      <div class="accord">
   <ul id="vidlink" class="accordion">
     <li>
-      <h2>Play Other source</h2>
+      <h2><button class="up">Play Other source</button></h2>
       <ul>
         <li><a id="myLink" title="Click video" href="http://jplayer.org/video/m4v/Incredibles_Teaser.m4v"><h4>Play .M4V</h4></a></li>
         <li><a id="myLink" title="Click video" href="//assets3.ign.com/videos/zencoder/2016/06/15/640/7080c56a76e2b74ec8ecfe4c224441d4-500000-1466028542-w.mp4"><h4>Play .MP4</h4></a></li>
