@@ -661,7 +661,7 @@ var webm_suffix = /\.webm/;
 //var mp3_suffix = /\.mp3/;
 var mpeg_suffix = /\.(mp3|m4a)/i;
 var ogg_suffix = /\.ogg/;
-
+var mp3_suffix = /\.mp3/;
 //var youtube_suffix = /\.youtube.com/;
 //var yt_suffix = /^(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?(?=.*v=((\w|-){11}))(?:\S+)?$/;
 var yt_suffix = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
@@ -680,6 +680,8 @@ function getType(url) {
     return 'audio/mpeg';
   if (ogg_suffix.test(url))
     return 'audio/ogg';
+  if (mp3_suffix.test(url))
+    return 'audio/mp3';
   if (dash_suffix.test(url))
     return 'application/dash+xml';
   if (rtmp_suffix.test(url))
