@@ -346,8 +346,7 @@ ul {
         <li><a id="myLink" title="Click video" href="https://yt-dash-mse-test.commondatastorage.googleapis.com/media/car-20120827-manifest.mpd"><h4>Play Dash (.mpd)</h4></a></li>
         <li><a id="myLink" title="Click video" href="http://jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm"><h4>Play .webm</h4></a></li>
         <li><a id="myLink" title="Click video" href="https://github.com/robovm/apple-ios-samples/blob/master/avTouch/sample.m4a?raw=true"><h4>Play .M4a (audio)</h4></a></li>
-        <li><a id="myLink" title="Click video" href="https://jn3.70clacks.co/uploads/music/2024/01/Disturbed-The-Sound-Of-Silence-CYRIL-Remix-(JustNaija.com).mp3"><h4>Play .Mp3 (audio)</h4></a></li>
-	      <li><a id="myLink" title="Click video" href="https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8
+        <li><a id="myLink" title="Click video" href="https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8
 "><h4>Play .m3u8 streaming</h4></a></li>
         <li><a id="myLink" title="Click video" href="http://techslides.com/demos/sample-videos/small.flv"><h4>Play .FLV (Do not work on JSFiddle)</h4></a></li>
        
@@ -661,7 +660,7 @@ var webm_suffix = /\.webm/;
 //var mp3_suffix = /\.mp3/;
 var mpeg_suffix = /\.(mp3|m4a)/i;
 var ogg_suffix = /\.ogg/;
-var mp3_suffix = /\.mp3/;
+
 //var youtube_suffix = /\.youtube.com/;
 //var yt_suffix = /^(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?(?=.*v=((\w|-){11}))(?:\S+)?$/;
 var yt_suffix = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
@@ -680,8 +679,6 @@ function getType(url) {
     return 'audio/mpeg';
   if (ogg_suffix.test(url))
     return 'audio/ogg';
-  if (mp3_suffix.test(url))
-    return 'audio/mp3';
   if (dash_suffix.test(url))
     return 'application/dash+xml';
   if (rtmp_suffix.test(url))
