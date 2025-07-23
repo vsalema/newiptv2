@@ -153,15 +153,7 @@ button {
   transition: 0.25s;
 }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    /* imports */
+/* imports */
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 /* colors */
 /* variables */
@@ -527,19 +519,14 @@ $('.accordion > li > h2').click(function(e) {
             >
           </p>
         </video>
-    
-    
     <script>
     var video = document.getElementById("player");
-
-    document.getElementById("input").addEventListener("change", function() {
+document.getElementById("input").addEventListener("change", function() {
       var media = URL.createObjectURL(this.files[0]);
       video.src = media;
       video.style.display = "block";
       video.play();
     });
-
-    var player = videojs('player');
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.0/Youtube.min.js'></script>
 <main id="main"></main>
