@@ -16,7 +16,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="https://vsalema.github.io/tvpt4/css/tresmin.css" rel="stylesheet" />
-    
+    <script src="https://vjs.zencdn.net/7.4.1/video.min.js"></script>
    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/scss/_root.scss
   " rel="stylesheet" />
   <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
@@ -399,28 +399,16 @@ ul {
   })();
 </script>
 <noscript><p><img src="//analytics.techyhub.co/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-	<body onclick="togglesubmenu();">
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <body onclick="togglesubmenu();">
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
       <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
-  
-  
-  
   <div class="nav-toggle"><p class="ch">chaines</p>
 	<div class="nav-toggle-bar"></div>
 </div>
-
-
-  
-  
-  
-  
-  <nav id="nav" class="nav">
-    
-    <div id="channels">
-      
-      
-      
-      <div class="container">
+<nav id="nav" class="nav">
+  <div id="channels">
+    <div class="container">
     <h1 class="mb-3 text-center" style="margin-left:25px;color: greenyellow;">M3U Playlist</h1>
 
         <a href="javascript:window.location.reload();" data-toggle="tooltip" title="" style="position:absolute;right:-4px;top:-5px;padding: 0 12px;" data-original-title="Refresh Page"><span id="btnRefresh" class="fa fa-refresh fa-lg" style="margin-top: 37px;margin-left: -92px;color: blue;"></span></a>
@@ -437,7 +425,10 @@ ul {
     <br>
     <br>
      <button type="submit" class="btn" aria-selected="true" style="color: white;">PLAY</button>
-  </form>
+  <label for="input"></label>
+        <input type="file" class="form-control" id="input" name="input_video" style="margin-left: -8px;">
+          
+          </form>
      
 </div>
       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -516,11 +507,9 @@ $('.accordion > li > h2').click(function(e) {
   </div>
   </div> 
   </div>
-</nav>
-
-
-  
-	<video data-dashjs-player autoplay id="player"   class="js-video video-js vjs-fluid vjs-big-play-centered" controls preload="auto" poster="https://cdn.futura-sciences.com/sources/images/iptv.jpeg" data-setup="{}">
+</nav> 
+      
+<video data-dashjs-player autoplay id="player"   class="js-video video-js vjs-fluid vjs-big-play-centered" controls preload="auto" poster="https://cdn.futura-sciences.com/sources/images/iptv.jpeg" data-setup="{}">
           <-- <source src="https://fl2.moveonjoy.com/HBO/index.m3u8" type="application/x-mpegURL" /> -->
           <p class="vjs-no-js">
             To view this video please enable JavaScript, and consider upgrading to a
@@ -530,11 +519,22 @@ $('.accordion > li > h2').click(function(e) {
             >
           </p>
         </video>
-      
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.0/Youtube.min.js'></script>
- 
-  
-  <main id="main"></main>
+    
+    
+    <script>
+    var video = document.getElementById("player");
+
+    document.getElementById("input").addEventListener("change", function() {
+      var media = URL.createObjectURL(this.files[0]);
+      video.src = media;
+      video.style.display = "block";
+      video.play();
+    });
+
+    var player = videojs('player');
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.0/Youtube.min.js'></script>
+<main id="main"></main>
 <script src="https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.min.js"></script>
 <script src="https://unpkg.com/videojs-max-quality-selector@0.9.1/dist/videojs-max-quality-selector.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -850,3 +850,5 @@ document.addEventListener("DOMContentLoaded", () => {
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   </body>
 </html>
+
+
