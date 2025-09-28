@@ -977,7 +977,7 @@ nav.bottom ul li {
 display: block;z-index: 3;"></span></a></div>
        
          
-         <button onclick="window.location='javascript:window.location.removedByCodePen();'" data-toggle="tooltip" style="padding:0 1px;position: relative;height: 45px;margin-left: 36px;" padding:0 1px" data-toggle="tooltip" title="Playlist Loader" class="btn btn-success" id="btnRefresh" type="button" data-loading-text="Load M3U"></button>
+         <button onclick="history.go(0);" data-toggle="tooltip" style="padding:0 1px;position: relative;height: 45px;margin-left: 36px;" padding:0 1px" data-toggle="tooltip" title="Playlist Loader" class="btn btn-success" id="btnRefresh" type="button" data-loading-text="Load M3U"></button>
          
          
          
@@ -1376,7 +1376,12 @@ $('.t-bottom').click(function () {
   $('.bottom').toggleClass('active');
 });
 //# sourceURL=pen.js
-  </script>
+ document.addEventListener("DOMContentLoaded", function() {
+	document.querySelector("#time").innerHTML = new Date().toString();
+});
+	
+	
+	</script>
 
   
 </body>
