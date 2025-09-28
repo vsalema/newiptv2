@@ -1,12 +1,12 @@
 // JavaScript Document
-const sourceSelect = document.getElementById("sourceSelect");
-    const m3uLinkInput = document.getElementById("m3uLink");
-    const channelLinkInput = document.getElementById("channelLink");
-    const categorySelect = document.getElementById("categorySelect");
-    const channelSelect = document.getElementById("channelSelect");
+const sourceSelectx1 = document.getElementById("sourceSelectx1");
+    const m3uLinkx1Input = document.getElementById("m3uLinkx1");
+    const channelLinkx1Input = document.getElementById("channelLinkx1");
+    const categorySelectx1 = document.getElementById("categorySelectx1");
+    const channelSelectx1 = document.getElementById("channelSelectx1");
     const channelLogo = document.getElementById("channelLogo");
     const channelLogo2 = document.getElementById("channelLogo2");
-    const fileInput = document.getElementById("fileInput");
+    const fileInputx1 = document.getElementById("fileInputx1");
     const videoPlayer = videojs("player");
     let data = "";
     let channels = [];
@@ -39,31 +39,31 @@ const sourceSelect = document.getElementById("sourceSelect");
       });
       return channels;
     };
-    sourceSelect.addEventListener("change", () => {
-      const selectedValue = sourceSelect.value;
+    sourceSelectx1.addEventListener("change", () => {
+      const selectedValue = sourceSelectx1.value;
       if (selectedValue === "custom") {
-        m3uLinkInput.style.display = "block";
+        m3uLinkx1Input.style.display = "block";
       } else {
-        m3uLinkInput.style.display = "none";
-        m3uLinkInput.value = selectedValue;
+        m3uLinkx1Input.style.display = "none";
+        m3uLinkx1Input.value = selectedValue;
         fetchM3U();
       }
     });
-    m3uLinkInput.addEventListener("input", fetchM3U);
-    categorySelect.addEventListener("change", () => {
-      updateChannelSelect();
+    m3uLinkx1Input.addEventListener("input", fetchM3U);
+    categorySelectx1.addEventListener("change", () => {
+      updatechannelSelectx1();
     });
-    channelSelect.addEventListener("change", () => {
-      updateChannelLinkInput();
+    channelSelectx1.addEventListener("change", () => {
+      updatechannelLinkx1Input();
       playChannel();
     });
-    fileInput.addEventListener("change", handleFileUpload);
+    fileInputx1.addEventListener("change", handleFileUpload);
 
     function fetchM3U() {
       clearData();
-      const m3uLink = m3uLinkInput.value;
-      if (m3uLink) {
-        fetch(m3uLink)
+      const m3uLinkx1 = m3uLinkx1Input.value;
+      if (m3uLinkx1) {
+        fetch(m3uLinkx1)
           .then(response => response.text())
           .then(content => {
             data = content;
@@ -73,36 +73,36 @@ const sourceSelect = document.getElementById("sourceSelect");
               const option = document.createElement("option");
               option.value = category;
               option.textContent = `${category} (${countChannelsInCategory(category)})`;
-              categorySelect.appendChild(option);
+              categorySelectx1.appendChild(option);
             });
-            updateChannelSelect();
+            updatechannelSelectx1();
           });
       }
     }
 
-    function updateChannelSelect() {
-      const selectedCategory = categorySelect.value;
-      channelSelect.innerHTML = "";
+    function updatechannelSelectx1() {
+      const selectedCategory = categorySelectx1.value;
+      channelSelectx1.innerHTML = "";
       channels.filter(channel => channel.category === selectedCategory).forEach(channel => {
         const option = document.createElement("option");
         option.value = channel.url;
         option.textContent = channel.name;
-        channelSelect.appendChild(option);
+        channelSelectx1.appendChild(option);
       });
-      updateChannelLinkInput();
+      updatechannelLinkx1Input();
       playChannel();
     }
 
-    function updateChannelLinkInput() {
-      channelLinkInput.value = channelSelect.value;
+    function updatechannelLinkx1Input() {
+      channelLinkx1Input.value = channelSelectx1.value;
     }
 
     function clearData() {
       data = "";
       channels = [];
       channelLogo2.src = "";
-      categorySelect.innerHTML = "";
-      channelSelect.innerHTML = "";
+      categorySelectx1.innerHTML = "";
+      channelSelectx1.innerHTML = "";
       channelLogo.src = "";
       
     }
@@ -125,23 +125,23 @@ const sourceSelect = document.getElementById("sourceSelect");
             const option = document.createElement("option");
             option.value = category;
             option.textContent = `${category} (${countChannelsInCategory(category)})`;
-            categorySelect.appendChild(option);
+            categorySelectx1.appendChild(option);
           });
-          updateChannelSelect();
+          updatechannelSelectx1();
         };
         reader.readAsText(file);
       }
     }
 
     function playChannel() {
-      const selectedChannelUrl = channelLinkInput.value; // Lấy liên kết từ channelLinkInput
+      const selectedChannelUrl = channelLinkx1Input.value; // Lấy liên kết từ channelLinkx1Input
       // Cập nhật trình phát video
       videoPlayer.src({
         src: selectedChannelUrl,
         type: ""
       });
-      // Lấy kênh đã chọn từ channelSelect
-      const selectedChannel = channels.find(channel => channel.url === channelSelect.value);
+      // Lấy kênh đã chọn từ channelSelectx1
+      const selectedChannel = channels.find(channel => channel.url === channelSelectx1.value);
       // Cập nhật logo kênh từ kênh đã chọn
       if (selectedChannel) {
         channelLogo.src = selectedChannel.logo;
@@ -157,12 +157,9 @@ const sourceSelect = document.getElementById("sourceSelect");
 
 
 
-channelLinkInput.addEventListener("input", () => {
+channelLinkx1Input.addEventListener("input", () => {
       playChannel();
     });
     // Tự động chọn nguồn đầu tiên và fetch dữ liệu khi mở trang
-    sourceSelect.selectedIndex = 0;
-    sourceSelect.dispatchEvent(new Event("change"));
-
-
-
+    sourceSelectx1.selectedIndex = 0;
+    sourceSelectx1.dispatchEvent(new Event("change"));
