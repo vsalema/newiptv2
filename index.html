@@ -1,10 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en' class=''>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
-	<title>M3U Player multi source</title>
+
+  <meta charset='UTF-8'>
+  <title>CodePen Demo</title>
+
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+ 
+  <link href="https://vsalema.github.io/tvpt4/css/menu-right.css" rel="stylesheet" />
+  <style>
+    .side-navbar {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  margin-left: -300px;
+  background-color: #1f2937;
+  transition: 0.5s;
+}
+
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+  background-color: #ffffff26;
+}
+
+.my-container {
+  transition: 0.4s;
+}
+
+.active-nav {
+  margin-left: 0;
+}
+
+/* for main section */
+.active-cont {
+  margin-left: 250px;
+}
+.my-container input {
+  border-radius: 2rem;
+  padding: 2px 20px;
+}
+    
+    input::placeholder, textarea::placeholder {
+  opacity: 1;
+  color: #eff0f2;
+}
+    
+    #menu-right-toggle {
+  color: #f6eeee;
+  top: -3px;
+  right: -74px;
+}
+      
+    
+  </style>
+  <style>
+    .rounded-full {
+  border-radius: 0px;
+}
+.w-10 {
+  width: 7.5rem;
+}
+.h-10 {
+  height: 4.5rem;
+} 
+    .mb-4 {
+  margin-bottom: 4rem;
+}
+    .btn {
+font-size: 28px;
+  }
+   #menu-btn {
+  color: #fff;
+  z-index: 3;
+  position: static;
+  left: 0;
+  top: 12%;
+  width: 8em;
+  margin-top: -0.9em;
+  margin-left: -1491px;
+}
+
+    
+    .videoPlayer-dimensions.vjs-fluid:not(.vjs-audio-only-mode) {   padding-top: 49%; }
+    
+    .text-centerxx {
+  position: absolute;
+  margin-top: -57px;
+  z-index: 3;
+  margin-left: 50%;
+}
+    #primary { width: auto; }
+#primary.menu-secundary-active { margin-left: 200px; }
+
+#secundary { background: ; width: 200px; height: 100%; position: fixed; overflow-y: auto; margin-left: -200px; padding-top: 50px; }
+#secundary.menu-secundary-active {  margin-left: 0;z-index: 3;  
+    
+    }
+
+#btn-menu-secundary-open,
+#btn-menu-secundary-close { position: fixed; left: 10px; top: 10px; z-index: 1; }
+
+#btn-menu-secundary-open.menu-secundary-active,
+#btn-menu-secundary-close.menu-secundary-active { display: none; }
+
+/* TIP: Use with SCSS or SASS
+#primary, #secundary {
+   @include transition(margin-left ease-in-out .15s);
+}
+*/
+  </style>
+
+  <style>
+    #secundary {
+  background: ;
+  width: 200px;
+  height: 100%;
+  position: fixed;
+  overflow-y: auto;
+  margin-left: -1740px;
+  padding-top: 50px;
+  z-index: 3;
+    }
+      
+     .btn-success {
+background-color: #222 !important;
+  color: #fff;
+  border-color: #28a745;
+  font-size: 12px; 
+    margin-left: 50px;  
+    }  
+  
+  
+    
+      
+      
+      #secundary.menu-secundary-active {
+  margin-left: -1334px;
+}  
+      @media (min-width: 1024px) {
+  .lg\:w-1\/4 {
+    width: 100%;
+  }
+}
+      
+      /* Custom scrollbar for dark mode */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #2d3748; /* bg-gray-800 */
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568; /* bg-gray-600 */
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280; /* bg-gray-500 */
+        }
+
+        /* Ensure video fills its container and maintains aspect ratio */
+       
+
+        /* Video.js specific styling adjustments for dark mode and responsiveness */
+        
+        
+        
+        
+        
+    </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
   <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -150,7 +320,7 @@ background-color: #222 !important;
 }
 
 </style>
-  <style>
+ <style>
     .up {
   --color: #f8f9fa;
   --hover: #94e458;
@@ -397,7 +567,216 @@ ul {
 
 
   </style>
-  </head>
+  
+  
+  <style>
+.btn-group1 {
+	position: absolute;
+	top: -1%;
+	left: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-o-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	height: auto;
+	width: auto;
+z-index: 3;
+  }
+.btn-group2 {
+	position: absolute;
+	top: -1%;
+  left: 90%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-o-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	height: auto;
+	width: auto;
+z-index: 3;
+  }
+.btn-group3 {
+	position: absolute;
+	top: 95%;
+	left: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-o-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	height: auto;
+	width: auto;
+z-index: 3;
+  }
+.btn-group4 {
+	position: absolute;
+	top: 1%;
+	left: 1%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-o-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	height: auto;
+	width: auto;
+z-index: 3;
+  }
+
+
+
+
+
+
+
+.btn-group1 div {
+	position: absolute;
+  display: inline-block;
+  margin: 5px;
+	padding: 15px 25px;
+	background-color: #2220;
+	color: #fff;
+	text-transform: uppercase;
+	cursor: pointer;
+ z-index: 3;
+  }
+
+.btn-group2 div {
+	position: absolute;
+  display: inline-block;
+  padding: 15px 25px;
+	background-color: #2220;
+	color: #fff;
+	text-transform: uppercase;
+	cursor: pointer;
+ z-index: 3;
+  }
+.btn-group3 div {
+	position: absolute;
+  display: inline-block;
+  margin: 5px;
+	padding: 15px 25px;
+	background-color: #2220;
+	color: #fff;
+	text-transform: uppercase;
+	cursor: pointer;
+  z-index: 3;
+  }
+.btn-group4 div {
+	position: absolute;
+  display: inline-block;
+  margin: 5px;
+	padding: 15px 25px;
+	background-color: #2220;
+	color: #fff;
+	text-transform: uppercase;
+	cursor: pointer;
+ z-index: 3;
+  }
+
+
+nav {
+	position: fixed;
+	background-color: #2220;
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	-o-transition: .5s;
+	transition: .5s;
+}
+nav ul {
+	margin: 0;
+	padding: 0;
+}
+nav ul li {
+	list-style-type: none;
+}
+nav ul li a {
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	padding: 10px 20px;
+	text-align: center;
+	font-size: 20px;
+}
+
+
+
+
+nav.left,
+nav.right {
+	height: 100%;
+	width: 250px;
+}
+nav.left {
+	top: 0;
+	left: -250px;
+}
+nav.left.active {
+	left: 0;
+}
+nav.right {
+	top: 0;
+	right: -250px;
+}
+nav.right.active {
+	right: 0;
+}
+
+
+
+nav.top,
+nav.bottom {
+	height: 100px;
+	width: 100%;
+}
+nav.top {
+	top: -100px;
+	left: 0px;
+}
+nav.top.active {
+	top: 0;
+}
+nav.bottom {
+	bottom: -100px;
+	left: 0;
+}
+nav.bottom.active {
+	bottom: 0;
+}
+nav.top ul,
+nav.bottom ul{
+	text-align: center;
+}
+nav.top ul li,
+nav.bottom ul li {
+	display: inline-block;
+	padding: 20px 25px;
+}
+
+/* Habib Pro Tag */
+.habibpro {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 15px 30px;
+  background-color: #212121;
+  color: #fff;
+  box-shadow: -2.5px 5px 5px #555;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 3px;
+  display: inline-block;
+  text-decoration: none;
+}
+.habibpro:hover {
+  background-color: #FFC107;
+  color: #222;
+  -webkit-transition: .5s;
+	-moz-transition: .5s;
+	-o-transition: .5s;
+	transition: .5s;
+}
+</style>
+</head>
 <script>
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -414,11 +793,121 @@ ul {
   })();
 </script>
 <noscript><p><img src="//analytics.techyhub.co/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-  <body onclick="togglesubmenu();">
-
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  
+  
+  <body style="background-color: black;">
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
       <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
-  <div class="nav-toggle"><p class="ch">chaines</p>
+
+    
+    <video data-dashjs-player autoplay id="player"   class="js-video video-js vjs-fluid vjs-big-play-centered" controls playsinline poster="https://cdn.futura-sciences.com/sources/images/iptv.jpeg" data-setup="{}">
+          <-- <source src="https://fl2.moveonjoy.com/HBO/index.m3u8" type="application/x-mpegURL" /> -->
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a
+            web browser that
+            <a href="https://videojs.com/html5-video-support/" target="_blank"
+              >supports HTML5 video</a
+            >
+          </p>
+        </video> 
+  
+  
+  <div class="btn-group1">
+		<div class="t-top"> <i class="fa fa-bars"></i> &nbsp;  </div></div>
+		
+<div class="btn-group2">
+<div class="t-right"> <i class="fa fa-bars"></i> &nbsp;  </div></div>
+		
+<div class="btn-group3" style="visibility: hidden;">
+<div class="t-bottom"> <i class="fa fa-bars"></i> &nbsp;  </div></div>
+	
+	</div>
+	
+	<nav class="top">
+		<ul>
+			<li> </li>
+			
+			<li> <div class="input-group mb-3">
+ <form id="vsg-loadvideo">
+ <input class="inpt webflow-style-input" type="text" name="vidurl" id="vsg-vurl" style="background-color: #477f7f;
+  margin-left: -11px;
+  border: 1px solid #f3f8f8;
+  width: 620px;" value="" placeholder="Video youtube/m3u8/mpd/mp4/mav/webm/M4a/mp3 URL:"><button type="submit" class="btn" aria-selected="true" style="position: relative;margin-top: 5px;margin-left: 32px;color: white;">PLAY</button></form></li>
+		</ul>
+	</nav>
+
+	<nav class="right">
+		<ul>
+			<li>
+			  <!-- Side-Nav -->
+  <div class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar" style="z-index: 3;">
+    <div class="lg:w-1/4 w-full bg-gray-800 rounded-lg shadow-xl p-4 flex flex-col max-h-[95vh] overflow-y-auto">
+            <h2 class="text-2xl font-bold mb-4 text-centerxx"></h2>
+<!-- Mode Toggle -->
+           <div class="flex justify-center mb-4" style="margin-top: 12px;"> 
+                <button id="modeIptv" class="px-3 py-2 rounded-l-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-colors duration-200">IPTV</button>
+                <button id="modeWebcams" class="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-gray-300 font-semibold text-sm transition-colors duration-200">Webcams</button>
+                <button id="modeOtherFeeds" class="px-3 py-2 rounded-r-lg bg-gray-700 hover:bg-gray-600 text-gray-300 font-semibold text-sm transition-colors duration-200">Movies</button>
+            </div>
+<!-- IPTV Controls Group -->
+            <div id="iptvControls" class="mb-4 flex flex-col space-y-3">
+                <label for="categorySelect2" class="text-gray-300">Select Category:</label>
+                <select id="categorySelect2"
+                        class="w-full p-3 rounded-md bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+
+                <input type="text" id="searchInput2" placeholder="Search channels..."
+                       class="w-full p-3 rounded-md bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400">
+                <label for="showGeoLocked" class="flex items-center space-x-2 cursor-pointer text-gray-300">
+                    <input type="checkbox" id="showGeoLocked" class="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500 bg-gray-700 border-gray-600">
+                    <span>Show Geo-locked Channels</span>
+                </label>
+            </div>
+
+            <!-- Loading Indicator for Channels -->
+            <div id="channel-loading-indicator" class="flex items-center justify-center text-gray-400 py-8">
+                <svg class="animate-spin h-8 w-8 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span class="ml-3">Loading channels...</span>
+            </div>
+
+            <!-- Channel List -->
+            <div id="channel-list2" class="flex-grow overflow-y-auto space-y-2 pr-2">
+                <!-- Channels will be loaded here by JavaScript -->
+            </div>
+        </div>
+     </div>
+  </div>
+
+  <!-- Main Wrapper -->
+  <div class="p-1 my-container active-cont">
+    <!-- Top Nav -->
+    <nav class="navbar top-navbar navbar-light bg-light px-5">
+      <a class="btn border-0" id="menu-btn" style="visibility: hidden;"><i class="bx bx-menu"></i></a>
+    </nav>
+    <!--End Top Nav -->
+ <h2 id="current-channel-name2" class="text-xl font-bold mb-2 text-centerxx text-gray-300">Select a channel to play</h2>
+        
+			</li>
+		</ul>
+                                                  </body>
+   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://vsalema.github.io/tvpt4/js/right.js"></script> 
+</nav>  
+
+	<nav class="bottom">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Service</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
+
+<div class="nav-toggle"><p class="ch">chaines</p>
     
     <div class="imputa2"><p class="ch" style="">
    
@@ -427,10 +916,7 @@ ul {
     <img id="channelLogo2" src="" alt="Logo chaîne📺" class="tmd d-block mx-auto" style="max-width:250px;max-height:100px;box-shadow:8px 8px 10px 0 rgba(0,0,0,0.5);" title="Open menu !">
   </div>
   </div>
-    
-    
-    
-    </p>
+  </p>
 	<div class="nav-toggle-bar" style=""></div>
 </div>
 <nav id="nav" class="nav">
@@ -453,18 +939,13 @@ display: block;"></span></a></div>
          
          <button onclick="window.location='https://vsalema.github.io/newiptv/'" style="padding:0 1px;position: relative;height: 45px;margin-left: 36px;" padding:0 1px" data-toggle="tooltip" title="Playlist Loader" class="btn btn-success" id="col_elamhad" type="button" data-loading-text="Load M3U">Load another list</button>
          
-         
-         
-        
-    <br>IPTV M3U LIST</br>
-    
-  
-  <div class="input-group mb-3">
-      <select id="sourceSelect" class="form-select">
+        <br>IPTV M3U LIST</br>
+        <div class="input-group mb-3">
+        <select id="sourceSelectx1" class="form-select">
         <option value="https://raw.githubusercontent.com/vsalema/tvpt4/refs/heads/main/css/TVradioZap-TV-Europe%2B_s_2024-12-27.m3u">France TV 🇫🇷</option>
         <option value="https://raw.githubusercontent.com/vsalema/tvpt4/refs/heads/main/js/M3UPT.m3u">Portugal praias TV 🇵🇹</option>
-	<option value="https://raw.githubusercontent.com/vsalema/tvpt4/refs/heads/main/css/PT.m3u">Portugal TV 🇵🇹</option>
-	<option value="https://raw.githubusercontent.com/vsalema/tvpt4/refs/heads/main/css/movies.m3u">Movies</option>
+	    <option value="https://raw.githubusercontent.com/vsalema/tvpt4/refs/heads/main/css/PT.m3u">Portugal TV 🇵🇹</option>
+	    <option value="https://raw.githubusercontent.com/vsalema/tvpt4/refs/heads/main/css/movies.m3u">Movies</option>
         <option value="https://raw.githubusercontent.com/Paradise-91/ParaTV/refs/heads/main/playlists/samsungtvplus/group/fr/fr.m3u">samsungtvplusfrance</option>
         <option value="https://raw.githubusercontent.com/Paradise-91/ParaTV/refs/heads/main/playlists/samsungtvplus/main/samsungtvplus.m3u">samsungtvpluseurope</option>
         <option value="https://raw.githubusercontent.com/Paradise-91/ParaTV/refs/heads/main/playlists/paratv/group/tf1plus/tf1plus.m3u">TF1PLUS</option>
@@ -473,69 +954,45 @@ display: block;"></span></a></div>
         <option value="https://iptv-org.github.io/iptv/index.country.m3u">country</option>
         <option value="https://iptv-org.github.io/iptv/index.language.m3u">language</option>
         <option value="custom">Load M3u</option>
-      </select>&nbsp;&nbsp;&nbsp;
+        </select>&nbsp;&nbsp;&nbsp;
  
     
-      <input type="text" id="m3uLink" class="form-control w-50" placeholder="Entrez le chemin M3U">
+      <input type="text" id="m3uLinkx1" class="form-control w-50" placeholder="Entrez le chemin M3U">
     </div>
 
     
 
     <div class=" input-group">
-      <label for="categorySelect" class="form-label text-center w-50 ">Sélectionnez la catégorie:</label>
+      <label for="categorySelectx1" class="form-label text-center w-50 ">Sélectionnez la catégorie:</label>
       <span class="form-label text-center w-50">Sélectionnez la chaîne:</span>
     </div>
 
     <div class="input-group mb-3">
-      <select id="categorySelect" class="form-select"></select>&nbsp;&nbsp;
-      <select id="channelSelect" class="form-select"></select>
+      <select id="categorySelectx1" class="form-select"></select>&nbsp;&nbsp;
+      <select id="channelSelectx1" class="form-select"></select>
     </div>
     <b>load m3u list to your pc</b>
     <div class="input-group mb-3">
-      <input type="file" id="fileInput" class="form-control">
+      <input type="file" id="fileInputx1" class="form-control">
     </div>
     
     
   <div class="input-group mb-3">
      
   <form id="vsg-loadvideo">
-    Video youtube/m3u8/mpd/mp4/mav/webm/M4a/mp3 URL:
-    
-    <input class="inpt webflow-style-input" type="text" name="vidurl" id="vsg-vurl" style="background-color: #477f7f;
-  margin-left: -11px;
-  border: 1px solid #f3f8f8;
-  width: 220px;" value="" placeholder="Direct play Enter URL source">
-    <br>
-    <br>
-     <button type="submit" class="btn" aria-selected="true" style="position: relative;margin-top: 5px;margin-left: 32px;color: white;">PLAY</button>
-   
-    
     <label for="input"></label>
     <br>load file to your pc mp3/mp4/other source</br>
     &nbsp;&nbsp;
     <input type="file" class="form-control" id="input" name="input_video" style="margin-left: -8px;">
-          
-          </form>
-     
-</div>
-      
-        </div>  
+    </form>
+    </div>
+    </div>  
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
     <div class="input-group mb-3">
        <form id="vsg-loadvideo">
     Video mp4, hls, mpd Url Active:
     
-      <input type="text" id="channelLink" class="" placeholder="Lien de chaîne" style="width:180px;">
+      <input type="text" id="channelLinkx1" class="" placeholder="Lien de chaîne" style="width:180px;opacity: 1;color: #0e0f0f;">
     </form>
          </div>
 
@@ -543,20 +1000,11 @@ display: block;"></span></a></div>
   </div> 
   </div>
 </nav> 
-      
-<video data-dashjs-player autoplay id="player"   class="js-video video-js vjs-fluid vjs-big-play-centered" controls playsinline poster="https://cdn.futura-sciences.com/sources/images/iptv.jpeg" data-setup="{}">
-          <-- <source src="https://fl2.moveonjoy.com/HBO/index.m3u8" type="application/x-mpegURL" /> -->
-          <p class="vjs-no-js">
-            To view this video please enable JavaScript, and consider upgrading to a
-            web browser that
-            <a href="https://videojs.com/html5-video-support/" target="_blank"
-              >supports HTML5 video</a
-            >
-          </p>
-        </video>
-    
 
-
+<a href="https://youtu.be/f_8P_X4yQ7U" target="_blank" class="habibpro" style="visibility: hidden;">
+  VIDEO TUTORIAL
+</a> 
+<script src="https://vsalema.github.io/tvpt4/js/menu-right.js"></script>
 <script>
     var video = document.getElementById("player");
 document.getElementById("input").addEventListener("change", function() {
@@ -570,10 +1018,10 @@ document.getElementById("input").addEventListener("change", function() {
 <main id="main"></main>
 <script src="https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.min.js"></script>
 <script src="https://unpkg.com/videojs-max-quality-selector@0.9.1/dist/videojs-max-quality-selector.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.20.3/video.min.js"></script>
-<script src="https://vsalema.github.io/newiptv2/js/newiptv.js "></script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.20.3/video.min.js"></script>
+<script src="https://vsalema.github.io/newiptv2/js/newiptv.js"></script>
 <script id="rendered-js" >
 const sidebar = document.getElementById('sidebar');
 const hamburger = document.querySelector('.hamburger');
@@ -605,8 +1053,7 @@ player.maxQualitySelector({
   
   
   <script>
-  
-  (function(window, videojs) {
+   (function(window, videojs) {
      var player = window.player = videojs('player');
 	  player.ready(function() {
 	  const muteButton = document.querySelector("");
@@ -831,10 +1278,26 @@ $('.accordion > li > h2').click(function(e) {
   e.preventDefault();
 });
     </script>  
-  <script src='https://cdn.statically.io/gh/videojs/videojs-youtube/fa85128b/dist/Youtube.min.js'></script>
+  <script>
+      $('.t-top').click(function () {
+  $('.top').toggleClass('active');
+});
+$('.t-left').click(function () {
+  $('.left').toggleClass('active');
+});
+$('.t-right').click(function () {
+  $('.right').toggleClass('active');
+});
+$('.t-bottom').click(function () {
+  $('.bottom').toggleClass('active');
+});                                    
+</script>
+        <script src='https://cdn.statically.io/gh/videojs/videojs-youtube/fa85128b/dist/Youtube.min.js'></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  
-  </body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
+
+      
+</body>
+
 </html>
-
-
