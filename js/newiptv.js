@@ -1,12 +1,12 @@
 // JavaScript Document
 const sourceSelect = document.getElementById("sourceSelect");
-    const m3uLinkInput = document.getElementById("m3uLink2");
-    const channelLinkInput = document.getElementById("channelLink2");
-    const categorySelect = document.getElementById("categorySelect2");
-    const channelSelect = document.getElementById("channelSelect2");
-    const channelLogo = document.getElementById("channelLogo1");
+    const m3uLinkInput = document.getElementById("m3uLink");
+    const channelLinkInput = document.getElementById("channelLink");
+    const categorySelect = document.getElementById("categorySelect");
+    const channelSelect = document.getElementById("channelSelect");
+    const channelLogo = document.getElementById("channelLogo");
     const channelLogo2 = document.getElementById("channelLogo2");
-    const fileInput = document.getElementById("fileInput2");
+    const fileInput = document.getElementById("fileInput");
     const videoPlayer = videojs("player");
     let data = "";
     let channels = [];
@@ -163,5 +163,6 @@ channelLinkInput.addEventListener("input", () => {
     // Tự động chọn nguồn đầu tiên và fetch dữ liệu khi mở trang
     sourceSelect.selectedIndex = 0;
     sourceSelect.dispatchEvent(new Event("change"));
+
 
 
